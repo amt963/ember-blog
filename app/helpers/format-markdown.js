@@ -1,11 +1,7 @@
-// This is to make JSHint, which is run when visiting /tests, happy
-/*global Showdown:false*/
-/*global Handlebars:false*/
+import Ember from 'ember';
 
-import Ember from "ember";
+export function formatMarkdown(params) {
+  return new Ember.String.htmlSafe(new showdown.Converter().makeHtml(params[0]));
+}
 
-export default Ember.Handlebars.makeBoundHelper(function(markdown) {
-  var showdown = new Showdown.converter();
-
-  return new Handlebars.SafeString(showdown.makeHtml(markdown));
-});
+export default Ember.Helper.helper(formatMarkdown);

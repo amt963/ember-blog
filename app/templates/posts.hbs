@@ -1,20 +1,18 @@
-<div class="col-md-4">
-  <h3>Posts</h3>
-
-  <ul class="list-unstyled">
-    {{#each}}
-      <li>
-        {{#link-to 'post' this}}
-          {{title}}
-          <span class="muted">
-            by {{author.name}}
-          </span>
-        {{/link-to}}
-      </li>
-    {{/each}}
-  </ul>
+<div class="col-md-3">
+    <h1>Posts</h1>
+    <ul class="list-unstyled">
+        {{#each model as |post|}}
+            <li>
+                {{#link-to "posts.post" post}}
+                    {{post.title}}
+                <span class="muted">
+                    by {{post.author.name}}
+                </span>
+                {{/link-to}}
+            </li>
+        {{/each}}
+    </ul>
 </div>
-
-<div class="col-md-8">
-  {{outlet}}
+<div class="col-md-9">
+    {{outlet}}
 </div>

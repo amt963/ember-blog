@@ -26,16 +26,24 @@ var posts = [
   {
     id: 1,
     title: 'Bananas',
-    author: 1,
     body: 'The most controversial aspect of the banana is whether it should be opened from the stem or from the bottom. I like to take it on a case-by-case basis.',
-    date: new Date(2014, 5, 4, 6, 0, 0)
+    date: new Date(2014, 5, 4, 6, 0, 0),
+    author: 1
   },
   {
     id: 2,
-    title: 'Monkeys',
-    author: 1,
+    title: 'Apples',
     body: 'Monkeys are pretty much the *coolest* animal. That is really all there is to it.',
-    date: new Date(2014, 9, 15, 6, 0, 0)
+    date: new Date(2014, 9, 15, 6, 0, 0),
+    author: 1
+  }
+];
+
+var authors = [
+  {
+    id: 1,
+    name: 'George',
+    posts: [1, 2]
   }
 ];
 
@@ -45,13 +53,8 @@ module.exports = function(app) {
 
   postsRouter.get('/', function(req, res) {
     res.send({
-      "posts": posts,
-
-      "authors": [{
-        id: 1,
-        name: "George",
-        posts: [1]
-      }]
+      'posts': posts,
+      'authors': authors
     });
   });
 
@@ -60,24 +63,18 @@ module.exports = function(app) {
   });
 
   postsRouter.get('/:id', function(req, res) {
-    console.log([].find);
-    console.log(posts.find);
+    var post = posts.find(function(post) {
+      return post.id === req.params.id;
+    });
     res.send({
-      "post": posts.find(function(post) {
-        return post.id == req.params.id
-      }),
-      "authors": [{
-        id: 1,
-        name: "George",
-        posts: [1]
-      }]
+      'post': post
     });
   });
 
   postsRouter.put('/:id', function(req, res) {
     res.send({
-      "posts": {
-        "id": req.params.id
+      'posts': {
+        id: req.params.id
       }
     });
   });
