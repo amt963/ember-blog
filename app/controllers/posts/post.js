@@ -2,12 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     isEditing: false,
+    
     actions: {
-        edit: function() {
+
+        edit() {
             this.set('isEditing', true);
         },
 
-        doneEditing: function() {
+        doneEditing() {
             this.set('isEditing', false);
         }
     }
