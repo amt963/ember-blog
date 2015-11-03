@@ -1,6 +1,6 @@
 # Ember Blog 2.0
 
-This is un update to the basic blog implemented by Tom Dale utilizing Ember CLI. Here are the screencasts documenting the original code creation:
+This is an update to the basic blog implemented by Tom Dale utilizing Ember CLI. The initial update was made by [Jon Evans](https://github.com/artfuldodger/ember-blog). Here are the screencasts documenting his code:
 
 - Part 1: https://www.youtube.com/watch?v=vLXGKNA4P_g
 - Part 2: https://www.youtube.com/watch?v=eV6JRW6gOyI
